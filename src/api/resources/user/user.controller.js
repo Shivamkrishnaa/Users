@@ -71,16 +71,14 @@ export default {
         })
     },
     async remove(req, res, next){
-        Post.delete({ id: req.params.id}, function(err, hero) {
-            if(err) {
-                res.json({
-                    error : err
-                })
-            }
+        Post.deleteOne({ id: req.params.id})
+        .then( function(hero) {
+           
             res.json({
-                message : "Hero deleted successfully"
+                message : "User deleted successfully"
             })
-        }).catch(err=>{
+        })
+        .catch(err=>{
             console.log(err);
             next(err);
         })

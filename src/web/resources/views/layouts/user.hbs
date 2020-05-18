@@ -102,12 +102,28 @@ var api = {
         get: function(data, success, error) {
             return query('/user/', "GET", data, 1, success, error)
         },
+        delete: function(id, success, error) {
+            return query('/user/'+id, "DELETE", undefined, 1, success, error)
+        },
     }
     }
-
+var deleteUser =function (id){
+ api.user.delete(id,function(success){
+        load();
+    })
+}
 var addUser = function(name,id){
     
-$('.list').append('<tr> <td class="name">'+name+'</td> <td class="born"><a href="/user/'+id+'">'+id+'</a></td> <td class="name">Route : /api/user/'+id+', Method : delete</td> </tr>')
+$('.list').append('<tr> <td class="name">'+name+'</td> <td class="born"><a href="/user/'+id+'">'+id+'</a></td> <td class="name">Route : /api/user/'+id+', Method : delete <button onclick="deleteUser('+id+')" class="btn edit btn-danger">Delete</button></td> </tr>')
+}
+var load = function(){
+  $('.list').html('')
+   api.user.get(undefined,function(success){
+        for(var i=0;i<success.length;i++){
+            addUser(success[i].name , success[i].id);
+            console.log("success[i].name , success[i].id)", success[i].name , success[i].id)
+        }
+    })
 }
     $(document).ready(function () {
 
@@ -116,7 +132,6 @@ $('.list').append('<tr> <td class="name">'+name+'</td> <td class="born"><a href=
     console.log("success", success)
         for(var i=0;i<success.length;i++){
             addUser(success[i].name , success[i].id);
-            console.log("success[i].name , success[i].id)", success[i].name , success[i].id)
         }
     })
 
