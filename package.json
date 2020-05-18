@@ -32,7 +32,8 @@
     "url": "https://github.com/Shivamkrishnaa/Users/issues"
   },
   "engines": {
-    "node": "11.15.0"
+    "node": "11.15.0",
+    "npm": "6.14.0"
   },
   "homepage": "https://github.com/Shivamkrishnaa/Users#readme",
   "dependencies": {
