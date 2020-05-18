@@ -59,6 +59,12 @@
     "xml2json": "^0.11.2",
     "xml2json-v12": "^0.11.3",
     "zlib": "^1.0.5",
-    "stack-trace": "0.0.10"
+    "stack-trace": "0.0.10",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "nodemon": "^1.19.4"
   }
 }
