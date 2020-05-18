@@ -37,6 +37,8 @@
   },
   "homepage": "https://github.com/Shivamkrishnaa/Users#readme",
   "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
@@ -49,7 +51,14 @@
     "mongoose": "^5.9.14",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "path": "^0.12.7",
+    "path": "^0.12.7",  "ua-parser-js": "^0.7.20",
+    "unzipper": "^0.9.15",
+    "webshot-node": "^0.18.2",
+    "xml-parser": "^1.2.1",
+    "xml2js": "^0.4.22",
+    "xml2json": "^0.11.2",
+    "xml2json-v12": "^0.11.3",
+    "zlib": "^1.0.5",
     "stack-trace": "0.0.10"
   }
 }
