@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
 const schema = mongoose.Schema;
 const postSchema = mongoose.Schema({
-    
+    id:{
+        type: Number,
+        required: true
+    },
       name:{
         type: String,
         required: true
@@ -14,7 +17,7 @@ const postSchema = mongoose.Schema({
 const Post = mongoose.model('post', postSchema);
 export default {
     async index(req, res, next){
-            Post.find()
+            Post.find({ },  { name :1 , id : 1 , _id : 0} )
             .then(r=>{
                 res.status(200).json(r);
             })
@@ -23,12 +26,16 @@ export default {
             })
     },
     async create(req, res, next){
-        const post = new Post({
-            name: req.body.name
-       })
-        post.save()
+        Post.find()
         .then(r=>{
-            res.status(200).json({ success : true });
+            const post = new Post({
+                name: req.body.name,
+                "id":r.length +1,
+           })
+           return post.save()
+        })
+        .then(r=>{
+            res.status(200).json({ success : true , msg : 'UserAdded successfully' });
         })
         .catch(err=>{
             console.log(err);
@@ -37,15 +44,9 @@ export default {
       
     },
     async get(req, res, next){
-        Post.get({name: req.params.name}, function(err, heros) {
-            if(err) {
-                res.json({
-                    error: err
-                })
-            }
-            res.json({
-                heros: heros
-            })
+        Post.find({ id: req.params.id },   { name :1 , id : 1 , _id : 0} )
+        .then(r=>{
+            res.status(200).json(r);
         }).catch(err=>{
             console.log(err);
             next(err);
@@ -55,7 +56,7 @@ export default {
         var hero = {
             name: req.body.name
         }
-        Post.update({_id: req.params.id}, hero, function(err, hero) {
+        Post.update({ id: req.params.id}, hero, function(err, hero) {
             if(err) {
                 res.json({
                     error : err
@@ -70,7 +71,7 @@ export default {
         })
     },
     async remove(req, res, next){
-        Post.delete({_id: req.params.id}, function(err, hero) {
+        Post.delete({ id: req.params.id}, function(err, hero) {
             if(err) {
                 res.json({
                     error : err
