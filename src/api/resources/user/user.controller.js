@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-const schema = mongoose.Schema;
 const postSchema = mongoose.Schema({
     id:{
         type: Number,
