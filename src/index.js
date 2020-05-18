@@ -37,17 +37,9 @@ app.use((error, req, res, next) => {
 	if (json) {
     return res.json({ errors: error.errorList });
   } else {
-    if (error.status == 401) {
-      return res.render("401", { message: error.message , isIam : req.url=='/users' || req.url=='/policy'  });
-    } else if (error.status == 422) {
-      return res.json({ errors: [error.message] });
-    } else if (error.status == 402) {
-      return res.render("402", { message: error.message, expiry: error.date });
-    } else if (error.status == 410) {
-      return res.render("410", { message: error.message, layout: "auth" });
-    } else {
+    
       return res.render(error.status.toString(), { layout: null });
-    }
+    
   }
 });
 mongoose.connect(url,{useNewUrlParser: true})
