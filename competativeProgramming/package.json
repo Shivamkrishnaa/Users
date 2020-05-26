@@ -1,0 +1,14 @@
+{
+  "name": "code-test",
+  "version": "1.0.0",
+  "description": "Testing using jasmine",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine --config=jasmine.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.5.0"
+  }
+}

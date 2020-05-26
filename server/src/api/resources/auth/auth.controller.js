@@ -35,5 +35,8 @@ export default {
               return res.send( r.records[0]);
               session.close()
           })
+          .catch(e=>{
+            next(e)}
+            )
     }
 };
