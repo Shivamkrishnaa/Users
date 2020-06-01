@@ -11,5 +11,10 @@
   "dependencies": {
     "jasmine": "^3.5.0",
     "mathjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0"
   }
 }
