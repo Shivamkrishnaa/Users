@@ -1,6 +1,7 @@
 import { restRouter } from './api';
 import { webRouter } from './web';
 import 'dotenv/config';
+import './passport';
 // import { db } from './models';
 import path from 'path';
 import appSetup from './app';
@@ -34,13 +35,11 @@ app.use((error, req, res, next) => {
 	res.status(error.status);
 	let contype = req.headers['content-type'];
 	var json = !(!contype || contype.indexOf('application/json') !== 0);
-	if (json) {
+	// if (json) {
+  //   return res.json({ errors: error.errorList });
+  // } else {
     return res.json({ errors: error.errorList });
-  } else {
-    
-      return res.render(error.status.toString(), { layout: null });
-    
-  }
+  // }
 });
 mongoose.connect(url,{useNewUrlParser: true})
 .then(()=>{

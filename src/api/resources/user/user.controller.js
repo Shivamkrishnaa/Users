@@ -1,22 +1,23 @@
-import mongoose from 'mongoose';
-const postSchema = mongoose.Schema({
-    id:{
-        type: Number,
-        required: true
-    },
-      name:{
-        type: String,
-        required: true
-      },
-      description:{
-        type: String,
-        required: false
-      },
-});
-const Post = mongoose.model('post', postSchema);
+// import mongoose from 'mongoose';
+// const postSchema = mongoose.Schema({
+//     id:{
+//         type: Number,
+//         required: true
+//     },
+//       name:{
+//         type: String,
+//         required: true
+//       },
+//       description:{
+//         type: String,
+//         required: false
+//       },
+// });
+// const Post = mongoose.model('post', postSchema);
+import { User } from './../../../models/user';
 export default {
     async index(req, res, next){
-            Post.find({ },  { name :1 , id : 1 , _id : 0} )
+        User.find({ },  { name :1 , id : 1 , _id : 0} )
             .then(r=>{
                 res.status(200).json(r);
             })
@@ -25,13 +26,13 @@ export default {
             })
     },
     async create(req, res, next){
-        Post.find()
+        User.find()
         .then(r=>{
-            const post = new Post({
+            const user = new User({
                 name: req.body.name,
                 "id":r.length +1,
            })
-           return post.save()
+           return user.save()
         })
         .then(r=>{
             res.status(200).json({ success : true , msg : 'UserAdded successfully' });

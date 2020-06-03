@@ -37,6 +37,11 @@
   },
   "homepage": "https://github.com/Shivamkrishnaa/Users#readme",
   "dependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
     "@babel/runtime": "^7.7.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
@@ -47,11 +52,15 @@
     "express-sanitizer": "^1.0.5",
     "express-session": "^1.17.1",
     "helmet": "^3.22.0",
+    "joi-date-extensions": "^1.2.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.14",
+    "nodemon": "^1.19.4",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "stack-trace": "0.0.10",
     "ua-parser-js": "^0.7.20",
     "unzipper": "^0.9.15",
     "webshot-node": "^0.18.2",
@@ -59,13 +68,6 @@
     "xml2js": "^0.4.22",
     "xml2json": "^0.11.2",
     "xml2json-v12": "^0.11.3",
-    "zlib": "^1.0.5",
-    "stack-trace": "0.0.10",
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/node": "^7.7.0",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.7.1",
-    "nodemon": "^1.19.4"
+    "zlib": "^1.0.5"
   }
 }

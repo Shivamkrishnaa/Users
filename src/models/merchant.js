@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-export const User =   mongoose.model('User', mongoose.Schema({
+export const Merchant =   mongoose.model('Merchant', mongoose.Schema({
   id: {
     type: Number,
     required: true

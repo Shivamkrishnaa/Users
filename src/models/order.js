@@ -1,27 +1,28 @@
 const mongoose = require('mongoose');
-export const User =   mongoose.model('User', mongoose.Schema({
+export const Order =   mongoose.model('Order', mongoose.Schema({
   id: {
     type: Number,
     required: true
   },
-  firstName:{
-    type: String,
+  items: {
+    type: [Number],
     required: true
   },
-  lastName:{
-    type: String,
-  },
-  phone:{
-    type: String,
+  total_price:{
+    type: Number,
     required: true
   },
-  email:{
-    type: String,
+  user_id:{
+    type: Number,
     required: true
   },
-  password:{
-    type: String,
+  merchant_id:{
+    type: [Number],
     required: true
+  },
+  placed_at:{
+    type: Date,
+    default: Date.now
   },
   createdAt:{
     type: Date,
@@ -30,8 +31,5 @@ export const User =   mongoose.model('User', mongoose.Schema({
   updatedAt:{
     type: Date,
     default: Date.now
-  },
-  loggedOutAt:{
-    type: Date
   }
 })) 
