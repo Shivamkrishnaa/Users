@@ -7,7 +7,7 @@ export default{
         if(req.user.type == "root"){
         Order.find({user_id : req.user.id },{  user_id : 0, _id : 0, __v : 0, createdAt : 0 , updatedAt : 0})
         .then(r => {
-            res.status(200).json(r);
+           return res.status(200).json(r);
         })
         // .then(r => {
         //     res.status(200).json(r)
@@ -19,16 +19,17 @@ export default{
     else {next( new RequestError("You're not a User.")) }
     },
     async fetchById(req, res, next){
-        if(req.user.type == "merchant"){
-        Item.find({  merchant_id : req.user.id , id : req.params.id },{  _id : 0, __v : 0/*, name : 1 , price : 1 , description : 1 , createdAt : 1, /*updatedAt : 0 , _id : 0 , merchant_id : 1*/} )
-        .then(r => {
-            res.status(200).json(r)
-        })
+        if(req.user.type == "root" && req.params.id ){
+            Order.find({user_id : req.user.id , id : req.params.id },{  user_id : 0, _id : 0, __v : 0, createdAt : 0 , updatedAt : 0})
+            .then(r => {
+                if(r && r[0]) return res.status(200).json(r[0]);
+                else throw new RequestError("Invalid order id.",400)
+            })
         .catch(err => {
             next(err)
         })
     }
-    else {next( new RequestError("You're not a Merchant.")) }
+    else {next( new RequestError("You're not a User.")) }
     },
     async create(req, res, next){
         const { items } = req.body;
