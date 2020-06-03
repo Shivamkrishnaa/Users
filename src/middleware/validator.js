@@ -32,19 +32,6 @@ export var schemas = {
         email: Joi.string().email().required(),
         password: Joi.string().required()
     }),
-    dmarcRecord: Joi.object().keys({
-        domainId: Joi.number().min(1).required(),
-        domain:Joi.string().required(),
-        p: Joi.string().required().valid('none','reject','quarantine'),
-        rua: Joi.array().optional().allow(null).empty(''),
-        ruf: Joi.array().optional().allow(null).empty(''),
-        forensicReport: Joi.boolean().optional().default(false),
-        fo: Joi.array().optional().allow(null).empty('').items(Joi.string().valid('1','0','d','s') ),
-        aspf: Joi.string().optional().valid('s','r'),
-        adkim: Joi.string().optional().valid('s','r'),
-        sp: Joi.string().optional().valid('none','reject','quarantine'),
-        pct: Joi.number().min(0).max(100).required(),
-    }),
     itemCreate: Joi.object().keys({
         name:Joi.string().required(),
         price: Joi.number().min(1).required(),
