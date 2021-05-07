@@ -61,7 +61,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "stack-trace": "0.0.10",
-    "ua-parser-js": "^0.7.20",
+    "ua-parser-js": "^0.7.24",
     "unzipper": "^0.9.15",
     "webshot-node": "^0.18.2",
     "xml-parser": "^1.2.1",
